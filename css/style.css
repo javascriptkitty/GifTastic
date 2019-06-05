@@ -1,0 +1,67 @@
+body {
+  height: 100%;
+  color: black;
+  font-family: "Inconsolata", monospace;
+  font-size: 14pt;
+  text-align: center;
+  padding: 1% 10%;
+  background: repeating-linear-gradient(
+    to right,
+    #fbceb1,
+    #fbceb1 10px,
+    #ffe4c4 10px,
+    #ffe4c4 20px
+  );
+}
+
+header {
+  font-family: "Amatic SC", cursive;
+  margin-bottom: 20px;
+  font-size: 50pt;
+  background-color: #fdf4e3;
+  padding: 45px 0;
+}
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+header,
+.search,
+.pics {
+  background-color: #fdf4e3;
+}
+.search,
+.pics {
+  padding: 5px;
+  display: flex;
+}
+.pics {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.buttons {
+  flex: 3;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.input {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.topics {
+  font-family: "Inconsolata", monospace;
+  font-size: 12pt;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+/* 
+font-family: 'Lemonada', cursive;
+
+font-family: 'Wendy One', sans-serif;
+
+font-family: 'Ribeye', cursive;
+font-family: 'Shadows Into Light Two', cursive;
+font-family: 'Amatic SC', cursive; */
