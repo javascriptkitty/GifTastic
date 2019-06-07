@@ -7,118 +7,52 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
+
     <link
-      href="https://fonts.googleapis.com/css?family=Amatic+SC|Corben|Inconsolata|Lemonada|Ribeye|Wendy+One&display=swap"
+      href="https://fonts.googleapis.com/css?family=Emilys+Candy|Inconsolata|Mirza&display=swap"
       rel="stylesheet"
     />
+    <script type="text/javascript" src="javascript/script.js"></script>
+
     <title>Document</title>
   </head>
   <body>
     <header>GifTastic Gifs!</header>
+
     <div class="search">
-      <div class="buttons"><h2>Categories</h2></div>
+      <div class="box">
+        <h2>Categories</h2>
+        <div class="buttons"></div>
+
+        <div class="select">
+          <h3>
+            Numbers of GIFs to retrieve:&nbsp;
+          </h3>
+          <select id="limit">
+            <option value="10"> 10</option>
+            <option value="20"> 20</option>
+            <option value="30"> 30</option>
+            <option value="40"> 40</option>
+            <option value="50"> 50</option>
+            <option value="60"> 60</option>
+          </select>
+        </div>
+      </div>
+
       <div class="input">
-        <h2>Add a category</h2>
+        <h3>Add a category</h3>
         <form id="form">
           <input type="text" id="usersInput" />
           <br />
-
-          <!-- Button triggers new movie to be added -->
           <input id="add" type="submit" value="Add a category" />
         </form>
       </div>
     </div>
 
-    <div class="pics"></div>
-    <script>
-      var topics = [
-        "cats",
-        "pandas",
-        "kawaii",
-        "cookies",
-        "sloth",
-        "sushi",
-        "alpaka",
-        "molang",
-        "capybara"
-      ];
-
-      var results;
-
-      function renderButtons() {
-        $(".buttons").empty();
-        for (var i = 0; i < topics.length; i++) {
-          var newButton = $("<button>");
-          newButton.addClass("topics");
-          newButton.attr("data-name", topics[i]);
-          newButton.text(topics[i]);
-          $(".buttons").append(newButton);
-        }
-      }
-
-      function addTopicsEventHandler() {
-        $(".topics").on("click", function() {
-          $(".pics").empty();
-          var topic = $(this).attr("data-name");
-          var queryURL =
-            "https://api.giphy.com/v1/gifs/search?q=" +
-            topic +
-            "&api_key=27MOifLs9fJsTdJi0I4qPLWbThKW36H8";
-
-          $.ajax({
-            url: queryURL,
-            method: "GET"
-          }).then(function(response) {
-            results = response.data;
-
-            console.log(response);
-
-            for (var i = 0; i <= 10; i++) {
-              var newDiv = $("<div>");
-              var p = $("<p>");
-              var rating = results[i].rating;
-              var p = $("<p>").text("Rating: " + rating);
-              var newImage = $("<img>");
-              newImage.attr("data-state", "still");
-              newImage.addClass("image");
-              newImage.css("padding", "5px");
-              newImage.attr("data-index", i);
-              newImage.attr("src", results[i].images.fixed_height_still.url);
-              $(newDiv).append(newImage);
-              $(newDiv).append(p);
-              $(".pics").prepend(newDiv);
-            }
-            $(".image").on("click", animatePics);
-          });
-        });
-      }
-
-      renderButtons();
-      addTopicsEventHandler();
-
-      $("#add").on("click", function(event) {
-        event.preventDefault();
-        var usersTopic = $("#usersInput")
-          .val()
-          .trim();
-        topics.push(usersTopic);
-
-        renderButtons();
-        addTopicsEventHandler();
-      });
-
-      function animatePics() {
-        debugger;
-        var state = $(this).attr("data-state");
-        var index = parseInt($(this).attr("data-index"));
-        if (state === "still") {
-          $(this).attr("src", results[index].images.fixed_height.url);
-          $(this).attr("data-state", "animate");
-        } else {
-          $(this).attr("src", results[index].images.fixed_height_still.url);
-          $(this).attr("data-state", "still");
-        }
-      }
-    </script>
+    <div class="pics">
+      <div class="column"></div>
+      <div class="column"></div>
+      <div class="column"></div>
+    </div>
   </body>
 </html>

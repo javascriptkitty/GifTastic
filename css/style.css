@@ -1,8 +1,8 @@
 body {
   height: 100%;
   color: black;
-  font-family: "Inconsolata", monospace;
-  font-size: 14pt;
+  font-family: "Mirza", cursive;
+  font-size: 16pt;
   text-align: center;
   padding: 1% 10%;
   background: repeating-linear-gradient(
@@ -14,40 +14,65 @@ body {
   );
 }
 
+body {
+  opacity: 0;
+}
+
+.fadeIn {
+  transition: opacity 3s;
+  opacity: 1;
+}
+
+select {
+  background: #abcdef;
+}
 header {
-  font-family: "Amatic SC", cursive;
-  margin-bottom: 20px;
+  font-family: "Emilys Candy", cursive;
+  margin-bottom: 18px;
   font-size: 50pt;
-  background-color: #fdf4e3;
-  padding: 45px 0;
+  border-radius: 70px;
+  background: radial-gradient(ellipse, #fdf4e3 60%, #abcdef);
+  padding: 40px 0;
 }
 h2 {
-  font-size: 20px;
+  font-size: 24pt;
   margin-bottom: 10px;
 }
+
 header,
 .search,
 .pics {
   background-color: #fdf4e3;
 }
-.search,
-.pics {
-  padding: 5px;
+.search {
+  padding: 10px 10px 0 10px;
   display: flex;
+  background: radial-gradient(ellipse, #fdf4e3 80%, #abcdef);
+  border-radius: 30px;
+  align-items: center;
+}
+.column {
+  flex: 1;
 }
 .pics {
+  margin-top: 20px;
   flex-wrap: wrap;
   justify-content: center;
+  display: none;
+  background: radial-gradient(ellipse, #fdf4e3 80%, #abcdef);
+  border-radius: 30px;
+  padding: 10px 10px 0 10px;
 }
 .buttons {
-  flex: 3;
   flex-wrap: wrap;
-  justify-content: space-around;
+  display: flex;
+  padding: 0 20px;
+  margin: 20px 10px 20px 0;
 }
 
 .input {
   display: flex;
-  flex: 1;
+  width: 180px;
   flex-direction: column;
 }
 .topics {
@@ -55,13 +80,42 @@ header,
   font-size: 12pt;
   padding: 5px 10px;
   margin: 5px;
+  border: 1px solid #00416a;
+  border-radius: 10px;
+  background-color: #abcdef;
+  outline: 0;
+  cursor: pointer;
+}
+.topics:hover {
+  box-shadow: inset 0 0 10px #0869a6;
+  cursor: pointer;
 }
 
-/* 
-font-family: 'Lemonada', cursive;
+.topics:active {
+  box-shadow: inset 0 0 10px #0869a6;
+  padding: 5px 6px;
+  margin: 5px 9px;
+  cursor: pointer;
+}
 
-font-family: 'Wendy One', sans-serif;
+#usersInput {
+  height: 20px;
+  border: 1px solid #00416a;
+  font-size: 11pt;
+  border-radius: 5px;
+}
+.image {
+  cursor: pointer;
+  padding: 5px;
+}
+.select {
+  display: flex;
+  justify-content: center;
+}
 
-font-family: 'Ribeye', cursive;
-font-family: 'Shadows Into Light Two', cursive;
-font-family: 'Amatic SC', cursive; */
+#add {
+  font-family: "Inconsolata", monospace;
+  font-size: 12pt;
+  padding: 5px 10px;
+  margin: 5px;
+}
